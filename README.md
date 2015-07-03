@@ -5,3 +5,5 @@ These classes take a text file containing web url, access the page and create My
 This project is also used to explore how to make the junit test run  with minimal installation. The goal is to clone the projet and run it as is.
 
 Some of the code was created infrench so somme comment and variable names are in french.
+
+The project is intended to run on Mac OS/X and linux.
