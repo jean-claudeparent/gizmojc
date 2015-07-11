@@ -6,7 +6,7 @@ public class extractURL {
 	public String URL;
 	
 	
-	Boolean NextURLFound() {
+	public Boolean NextURLFound() {
 		
 	// If an URL is found in TextToParse place it in 
 	// URL,return true and remove the URL from TextToParse .
