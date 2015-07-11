@@ -12,7 +12,7 @@ public class envirTest {
 	public void test1() {
 		
 		assertFalse("envirTest1 The default value of TestMode must be false.", myEnvir.TestMode);
-		
+		assertEquals(myEnvir.FolderSeoaratir ,"/");
 	} // end test1
 
 }

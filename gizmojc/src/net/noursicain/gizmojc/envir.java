@@ -5,5 +5,6 @@ public class envir {
 	
 	public Boolean TestMode = false;
 	public final String  TestFilePPath = "";
+	public final String FolderSeoaratir = "/";
 	
 }
