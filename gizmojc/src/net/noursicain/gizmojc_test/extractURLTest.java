@@ -38,6 +38,22 @@ public class extractURLTest {
 		assertNull("The URL of an extractURL must be null by default.",MyExtractURL.URL);
 		assertNull("The TextToParse of an extractURL must be null by default.",MyExtractURL.TextToParse);
 		assertFalse("the method must return false for an empty object.", MyExtractURL.NextURLFound());
-	}
+	} // end test1
+	
+	@Test
+	public void test2() {
+		// test extractURL with contents but no url
+		
+		MyExtractURL.TextToParse = "There is no URL.";
+		assertFalse(MyExtractURL.NextURLFound());
+		assertNull("When no URL are found the TextToParse should be null",MyExtractURL.TextToParse);
+		assertNull(MyExtractURL.URL);
+		
+		
+		
+		
+	} // end test2
+	
+	
 
 }
