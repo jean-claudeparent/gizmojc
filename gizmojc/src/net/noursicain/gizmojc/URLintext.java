@@ -8,9 +8,20 @@ public class URLintext {
 	public String TextAfterURL;
 	
 	public void Split(String TextToSplit) {
-		
+		TextBeforeURL = null;
+		TextAfterURL = null;
+		URL = null;
+		if (PositionURL(TextToSplit) > 0) {
+			
+		} // end if 
 		
 	} // end Split
+	
+	private int PositionURL(String text) {
+		// return the position of the first character of the url
+		return 0;
+	} // end PositionURL()
+
 	
 	
 	
