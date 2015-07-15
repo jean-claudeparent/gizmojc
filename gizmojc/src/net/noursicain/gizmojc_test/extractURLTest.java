@@ -48,11 +48,22 @@ public class extractURLTest {
 		assertFalse(MyExtractURL.NextURLFound());
 		assertNull("When no URL are found the TextToParse should be null",MyExtractURL.TextToParse);
 		assertNull(MyExtractURL.URL);
-		
-		
-		
-		
+				
 	} // end test2
+	
+	@Test
+	public void test3() {
+		// test extractURL with contents and one url
+		
+		MyExtractURL.TextToParse = "There is this URL:http://www.google.com to check.";
+		assertTrue("The URL should be found.",MyExtractURL.NextURLFound());
+		assertEquals("The remainig of the text should be in TextToParse "," to check.",MyExtractURL.TextToParse);
+		assertEquals("The url should have been exytacted. ","http://www.google.com",MyExtractURL.URL);
+		assertFalse("No more url should have been found. ",MyExtractURL.NextURLFound());
+		assertNull("When no URL are found the TextToParse should be null",MyExtractURL.TextToParse);
+		assertNull("The url should be null.",MyExtractURL.URL);
+						
+	} // end test3
 	
 	
 
