@@ -19,7 +19,21 @@ public class URLintext {
 	
 	public int PositionURL(String text) {
 		// return the position of the first character of the url
-		return 0;
+		
+		if (text == null) return -1;
+		
+		int Result;
+		int TempResult;
+		
+		String TextToSearch = text.toLowerCase();
+		Result = TextToSearch.indexOf("http://");
+		TempResult= TextToSearch.indexOf("https://");
+		if (Result == -1) Result = TempResult;
+		 else if (TempResult > -1 ) {
+			 if (TempResult < Result ) Result = TempResult;
+		 } // endif (TempResult > -1 )
+		return Result;
+		
 	} // end PositionURL()
 
 	

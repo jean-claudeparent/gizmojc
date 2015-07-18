@@ -56,7 +56,7 @@ public class URLintextTest {
 	public void test101() {
 		// test PositionURL
 		
-		assertEquals("The return value when there is no url should be 0",myURLInText.PositionURL("There is no url."),0);
+		assertEquals("The return value when there is no url should be -1",-1,myURLInText.PositionURL("There is no url."));
 	} // end test 101
 	
 	@Test
@@ -65,5 +65,28 @@ public class URLintextTest {
 		
 		assertEquals("The url position  should be 5",5,myURLInText.PositionURL("here:http://www.google.com/thisisthepage.aspx?thing=111111 rest of text line."));
 	} // end test 102
+	
+	@Test
+	public void test103() {
+		// test PositionURL
+		
+		assertEquals("The url position  should be 5",5,myURLInText.PositionURL("here:httP://www.google.com/thisisthepage.aspx?thing=111111 rest of text line. Other url to ignore http://nowhere.com"));
+	} // end test 103
+	
+	@Test
+	public void test104() {
+		// test PositionURL
+		
+		assertEquals("The url position  should be 5",5,myURLInText.PositionURL("here:https://www.google.com/thisisthepage.aspx?thing=111111 rest of text line."));
+	} // end test 104
+	
+	@Test
+	public void test105() {
+		// test PositionURL
+		
+		assertEquals("The url position  should be 5",5,myURLInText.PositionURL("here:Https://www.google.com/thisisthepage.aspx?thing=111111 rest of text line."));
+	} // end test 105
+	
+	
 
-} // end vlass
+} // end class
