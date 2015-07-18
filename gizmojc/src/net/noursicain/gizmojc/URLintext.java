@@ -11,7 +11,21 @@ public class URLintext {
 		TextBeforeURL = null;
 		TextAfterURL = null;
 		URL = null;
-		if (PositionURL(TextToSplit) > 0) {
+		int PositionOfURL = PositionURL(TextToSplit);
+		
+		if (PositionOfURL > -1) {
+			TextBeforeURL = TextToSplit.substring(0,PositionOfURL);
+			if (TextBeforeURL.equals("")) TextBeforeURL = null;
+			// find the index of the end of the url
+			int EndOfURL = PositionOfURL;
+			
+			URL = TextToSplit.substring(PositionOfURL, EndOfURL);
+			
+			if ((EndOfURL + 1) >= TextToSplit.length()) TextAfterURL = null;
+			else TextAfterURL = TextToSplit.substring(EndOfURL + 1, TextToSplit.length());
+			
+			
+			
 			
 		} // end if 
 		

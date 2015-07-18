@@ -51,6 +51,16 @@ public class URLintextTest {
 				
 	} // end test2
 	
+	@Test
+	public void test3() {
+		// test a working case
+		myURLInText.Split("Text before URL:http://test.noursicain.net text after url should begin with a space.");
+		assertEquals("Text before URL:",myURLInText.TextBeforeURL);
+		assertEquals("http://test.noursicain.net",myURLInText.URL);
+		assertEquals(" text after url should begin with a space.",myURLInText.TextAfterURL);
+		
+	} // end test3 
+	
 	// test of helper methods
 	@Test
 	public void test101() {
