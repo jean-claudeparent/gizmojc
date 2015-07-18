@@ -19,11 +19,14 @@ public class extractURL {
 		URLExtractor.Split(TextToParse);
 		if (URLExtractor.URL == null) {
 			TextToParse = null;
+			URL = null;
 			return false;
-			
 		} // if url = null
 		
-		return false;
+		URL = URLExtractor.URL;
+		TextToParse = URLExtractor.TextAfterURL;
+		
+		return true;
 		
 	} // end NextURLFound
 	

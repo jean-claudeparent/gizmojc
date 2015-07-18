@@ -18,11 +18,22 @@ public class URLintext {
 			if (TextBeforeURL.equals("")) TextBeforeURL = null;
 			// find the index of the end of the url
 			int EndOfURL = PositionOfURL;
+			Boolean NotFinished = true;
+			while (NotFinished) {
+				if ((EndOfURL + 1) > TextToSplit.length()) NotFinished = false;
+				else {
+					if(CharEndURL(TextToSplit.substring(EndOfURL, EndOfURL + 1))) NotFinished = false;
+					else EndOfURL = EndOfURL + 1;
+										
+				} // if EndOfURL will be greater than the string to split
+				
+			} // end while
+			
 			
 			URL = TextToSplit.substring(PositionOfURL, EndOfURL);
 			
 			if ((EndOfURL + 1) >= TextToSplit.length()) TextAfterURL = null;
-			else TextAfterURL = TextToSplit.substring(EndOfURL + 1, TextToSplit.length());
+			else TextAfterURL = TextToSplit.substring(EndOfURL, TextToSplit.length());
 			
 			
 			
@@ -49,6 +60,15 @@ public class URLintext {
 		return Result;
 		
 	} // end PositionURL()
+	
+	private Boolean CharEndURL(String theChar) {
+		// return true if theChar is not a charater possible in a url
+		if (theChar.equals(" ")) return true;
+		
+		return false;
+		
+	} // end CharEndURL()
+	
 
 	
 	
