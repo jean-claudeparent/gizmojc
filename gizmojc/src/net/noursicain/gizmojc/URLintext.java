@@ -17,7 +17,7 @@ public class URLintext {
 		
 	} // end Split
 	
-	private int PositionURL(String text) {
+	public int PositionURL(String text) {
 		// return the position of the first character of the url
 		return 0;
 	} // end PositionURL()

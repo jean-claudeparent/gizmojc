@@ -50,5 +50,20 @@ public class URLintextTest {
 		assertNull(myURLInText.TextAfterURL);
 				
 	} // end test2
+	
+	// test of helper methods
+	@Test
+	public void test101() {
+		// test PositionURL
+		
+		assertEquals("The return value when there is no url should be 0",myURLInText.PositionURL("There is no url."),0);
+	} // end test 101
+	
+	@Test
+	public void test102() {
+		// test PositionURL
+		
+		assertEquals("The url position  should be 5",5,myURLInText.PositionURL("here:http://www.google.com/thisisthepage.aspx?thing=111111 rest of text line."));
+	} // end test 102
 
-}
+} // end vlass
