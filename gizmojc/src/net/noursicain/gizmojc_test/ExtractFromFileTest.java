@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import net.noursicain.gizmojc.ExtractFromFile;
+import net.noursicain.gizmojc_test.TestTools;
+
 
 import java.net.URL;
 
@@ -14,11 +16,17 @@ import java.net.URL;
 public class ExtractFromFileTest {
 	
 	public ExtractFromFile myExtractFromFile;
+	public String DataFolder;
+	
 	
 
 	@Before
 	public void setUp() throws Exception {
 		myExtractFromFile = new ExtractFromFile();
+		TestTools myTT = new TestTools();
+		DataFolder = myTT.Folder(ExtractFromFileTest.class.getResource("Ressources/Ressources.txt").toString());
+		System.out.println(DataFolder);
+		
 		
 	}
 
@@ -29,14 +37,11 @@ public class ExtractFromFileTest {
 	@Test
 	public void test1() {
 		// URL myInputFile;
-		URL myURL;
 		
+		assertTrue("The DataFolder should contains noursicain/gizmojc_test/Ressources/ but it was  " + DataFolder,DataFolder.contains("noursicain/gizmojc_test/Ressources/"));
 		
-		// myExtractFromFile.InputFile = ExtractFromFileTest.class.getResource("/Ressources/InputFiles/ExtractFromFileTest_test1.txt").getPath();
-		myURL = ExtractFromFileTest.class.getResource("Ressources/Ressources.txt");
-		System.out.println(myURL);
-		if (myURL == null) fail ("The path to the ressource file seem wrong");
 		fail("Not yet implemented");
+		
 		// if (ExtractFromFileTest.class.getResource("/Ressources/InputFiles/ExtractFromFileTest_test1.txt").getPath() == null) fail ("The path to the ressource file seem wrong");
 		
 	} // end test1
