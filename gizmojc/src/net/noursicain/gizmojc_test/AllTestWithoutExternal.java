@@ -11,7 +11,9 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	envirTest.class,
 	extractURLTest.class,
-	URLintextTest.class
+	URLintextTest.class,
+	ExtractFromFileTest.class,
+	TestToolsTest.class
 })
 
 public class AllTestWithoutExternal {

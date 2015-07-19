@@ -7,7 +7,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import net.noursicain.gizmojc.extractURL;;
+
+import net.noursicain.gizmojc.extractURL;
+import net.noursicain.gizmojc.ExtractFromFile;
 
 public class extractURLTest {
 	
@@ -64,6 +66,15 @@ public class extractURLTest {
 		assertNull("The url should be null.",MyExtractURL.URL);
 						
 	} // end test3
+	
+	@Test
+	public void test4() throws Exception {
+		// This test just check that the class ExtractFromFile still exist in the project
+		// the test case of ExtractFromFile are important for this class (ExtractURL)
+		
+		ExtractFromFile myEFF = new ExtractFromFile();
+		
+	}
 	
 	
 
