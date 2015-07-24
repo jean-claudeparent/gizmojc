@@ -6,9 +6,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+
+
+
 import net.noursicain.gizmojc.ExtractFromFile;
 import net.noursicain.gizmojc_test.TestTools;
-
 
 import java.net.URL;
 
@@ -36,9 +42,25 @@ public class ExtractFromFileTest {
 
 	@Test
 	public void test1() {
-		// URL myInputFile;
+		// a test that work fpr processing a fo;e
+		
+		
 		
 		assertTrue("The DataFolder should contains noursicain/gizmojc_test/Ressources/ but it was  " + DataFolder,DataFolder.contains("noursicain/gizmojc_test/Ressources/"));
+		myExtractFromFile.InputFile = DataFolder + "InputFiles/ExtractFromFileTest_test1.txt";
+		myExtractFromFile.OutputFile = DataFolder + "OutputFiles/ExtractFromFileTest_test1.txt";
+		String SavedResultFile = DataFolder + "SavedFiles/ExtractFromFileTest_test1.txt";
+		
+		// delete the output file if needed
+		File Outputfile = new File(myExtractFromFile.OutputFile );
+		
+		if (Outputfile.exists())  {
+			Outputfile.delete();
+		} // end if
+			
+		// check if the file system is ok for the test
+		assertFalse("The output file should not be there " + myExtractFromFile.OutputFile , Outputfile.exists());
+		
 		
 		fail("Not yet implemented");
 		
