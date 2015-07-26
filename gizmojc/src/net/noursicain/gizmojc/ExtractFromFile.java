@@ -21,7 +21,9 @@ public class ExtractFromFile {
 	
 	
 	public void Go() throws Exception {
-		// extrat url from InputFile and write them in OutputFile
+		// extract url from InputFile and write them in OutputFile
+		extractURL eU = new extractURL();
+		
 		
 		if (Log) System.out.println("Begin ExtractFromFile.go()  ");
 		if (Log) System.out.println("Input file  : " + InputFile);
@@ -46,12 +48,15 @@ public class ExtractFromFile {
 		
 		while ((InputLine = br.readLine()) != null && InputLine.length() != 0)
 		{
-			
-		
-			
-			
-	
-		}
+			eU.TextToParse = InputLine;
+			while (eU.NextURLFound()) {
+				if (Log) System.out.println("URL found :  " + eU.URL);
+				out.append(eU.URL + "\n");
+				
+				
+			} // end while NextURLFound
+				
+		} // end while not end of file 
 		br.close();
 		fis.close();;
 		out.close();
