@@ -45,6 +45,8 @@ public class ExtractFromFileTest {
 	@Test
 	public void test1() throws Exception  {
 		// a test that work fpr processing a fo;e
+		myExtractFromFile.Log = true;
+		
 		
 		
 		// Initializations
@@ -74,7 +76,7 @@ public class ExtractFromFileTest {
 		
 		// compare the result of the new result and the saved files
 		assertTrue("The output file should be there " + myExtractFromFile.OutputFile , Outputfile.exists());
-		assertTrue("The new result file is not the same as the saved resulyt file. ",FileUtils.contentEquals(Outputfile,Savedfile ));
+		assertTrue("The new result file is not the same as the saved result file. ",FileUtils.contentEquals(Outputfile,Savedfile ));
 		
 	} // end test1
 	
