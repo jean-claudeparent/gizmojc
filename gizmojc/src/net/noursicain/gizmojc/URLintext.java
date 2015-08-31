@@ -32,6 +32,7 @@ public class URLintext {
 			
 			URL = TextToSplit.substring(PositionOfURL, EndOfURL);
 			
+			
 			if ((EndOfURL + 1) >= TextToSplit.length()) TextAfterURL = null;
 			else TextAfterURL = TextToSplit.substring(EndOfURL, TextToSplit.length());
 			
