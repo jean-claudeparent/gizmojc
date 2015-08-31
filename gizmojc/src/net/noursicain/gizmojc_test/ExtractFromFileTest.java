@@ -43,7 +43,7 @@ public class ExtractFromFileTest {
 	}
 
 	@Test
-	public void test1() throws Exception  {
+	public void test1_Working() throws Exception  {
 		// a test that work fpr processing a fo;e
 		myExtractFromFile.Log = true;
 		
@@ -78,15 +78,33 @@ public class ExtractFromFileTest {
 		assertTrue("The output file should be there " + myExtractFromFile.OutputFile , Outputfile.exists());
 		assertTrue("The new result file is not the same as the saved result file. ",FileUtils.contentEquals(Outputfile,Savedfile ));
 		
-	} // end test1
+	} // end test1_Working
 	
 	
 	@Test
-	public void test2() throws Exception  {
+	public void test2_IOException_input() throws Exception  {
+		// IOException for input file
+		
+		myExtractFromFile.InputFile = DataFolder + "InputFiles/ExtractFromFileTest_filenothere.txt";
+		myExtractFromFile.OutputFile = DataFolder + "OutputFiles/ExtractFromFileTest_test2.txt";
+		File Inputfile = new File(myExtractFromFile.InputFile );
+		assertFalse("The input file should not be there " + myExtractFromFile.InputFile , Inputfile.exists());
+		
+		try {
+			myExtractFromFile.Go();
+		} catch (IOException excep) {
+			assertTrue("The IOException occured",true);
+		} // end try
+				
+	}  // end test2_IOException_input()
+	
+	@Test
+	public void test3() throws Exception  {
 		// insert test for exceptions
 		fail("Not yet implemented");
 		
-	}  // end test2
+	}  // end test3
+	
 	
 	
 	
