@@ -99,11 +99,30 @@ public class ExtractFromFileTest {
 	}  // end test2_IOException_input()
 	
 	@Test
-	public void test3() throws Exception  {
-		// insert test for exceptions
-		fail("Not yet implemented");
+	public void test3_IOException_output() throws Exception  {
+		// test for IOExceptions on the output file
+		myExtractFromFile = new ExtractFromFile();
+		TestTools myTT = new TestTools();
+		DataFolder = myTT.Folder(ExtractFromFileTest.class.getResource("Ressources/Ressources.txt").toString());
+		System.out.println("test3_IOException_output() DataFolder : " + DataFolder);
 		
-	}  // end test3
+		// Initializations
+		assertTrue("The DataFolder should contains noursicain/gizmojc_test/Ressources/ but it was  " + DataFolder,DataFolder.contains("noursicain/gizmojc_test/Ressources/"));
+		myExtractFromFile.InputFile = DataFolder + "InputFiles/ExtractFromFileTest_test3.txt";
+		myExtractFromFile.OutputFile = DataFolder + "//\\.......s";
+		File Inputfile = new File(myExtractFromFile.InputFile );
+		assertTrue("The input file should be there " + myExtractFromFile.InputFile , Inputfile.exists());
+		
+		try {
+			myExtractFromFile.Go();
+		} catch (IOException excep) {
+			assertTrue("The IOException occured",true);
+		} // end try
+				
+		
+		
+		
+	}  // end test3_IOException_output
 	
 	
 	
