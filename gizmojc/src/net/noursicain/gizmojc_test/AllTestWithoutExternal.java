@@ -13,7 +13,8 @@ import org.junit.runners.Suite;
 	extractURLTest.class,
 	URLintextTest.class,
 	ExtractFromFileTest.class,
-	TestToolsTest.class
+	TestToolsTest.class,
+	EFFRunnerTest.class
 })
 
 public class AllTestWithoutExternal {
