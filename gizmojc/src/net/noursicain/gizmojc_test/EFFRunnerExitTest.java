@@ -20,14 +20,18 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 
 
-public class EFFRunnerTest {
+public class EFFRunnerExitTest {
+	// test for checking exit
+	// to my knowledge tgese test must be separated from ordinary test
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	public String DataFolder;
 	
 	@Rule
 	public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
+	
+	// public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+	
 	
 	@Before
 	public void setUp() throws Exception {
@@ -44,11 +48,10 @@ public class EFFRunnerTest {
 	@Test
 	public void NoArgs() {
 		// run without args
-		
 		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {InputFile });
+		EFFRunner.main(new String[] {});
+		fail("The test should have stopped.");
 		
-		assertTrue("The console should display Usage: EFFRunner inputfile outputfile. ùActuel result is :  " + outContent.toString(), outContent.toString().contains("Usage: EFFRunner inputfile outputfile"));
 	} // end NoArgs()
 	
 	@Test
@@ -57,7 +60,8 @@ public class EFFRunnerTest {
 		
 		exit.expectSystemExitWithStatus(99);
 		EFFRunner.main(new String[] {"inputfile"});
-		assertTrue("The console should display Usage: EFFRunner inputfile outputfile. ùActuel result is :  " + outContent.toString(), outContent.toString().contains("Usage: EFFRunner inputfile outputfile"));
+		fail("The test should have stopped.");
+		
 	} // end NotEnoughArgs()
 	
 	@Test
@@ -69,10 +73,28 @@ public class EFFRunnerTest {
 		
 		exit.expectSystemExitWithStatus(99);
 		EFFRunner.main(new String[] {InputFile });
+		fail("The test should have stopped.");
+		
+	} // end InputFileNotFound()
+	
+	@Test
+	public void AllWorks() {
+		// run with data to process
+		String InputFileName = DataFolder  + "/filedonotexist.txt";
+		String OutputFileName = DataFolder  + "/filedonotexist.txt";
+		String SavedFileName = DataFolder  + "/filedonotexist.txt";
+		
+		
+		File myInputfile = new File(InputFileName );
+		assertFalse("The input file should  be there " + InputFileName   , myInputfile.exists());
+		
+		exit.expectSystemExitWithStatus(99);
+		EFFRunner.main(new String[] {InputFileName });
 		
 		assertTrue("The console should display Usage: EFFRunner inputfile outputfile. ùActuel result is :  " + outContent.toString(), outContent.toString().contains("Usage: EFFRunner inputfile outputfile"));
-	//	fail("Not yet implemented");
-	} // end InputFileNotFound()
+		fail("Not yet implemented");
+	} // end AllWorks()
+	
 	
 
 }
