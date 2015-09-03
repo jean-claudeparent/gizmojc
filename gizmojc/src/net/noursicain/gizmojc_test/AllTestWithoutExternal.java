@@ -18,6 +18,7 @@ import org.junit.runners.Suite;
 	EFFRunnerExitTest.class
 })
 
+
 public class AllTestWithoutExternal {
 
 }

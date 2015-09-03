@@ -20,7 +20,7 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 
 
-public class EFFRunnerExitTest {
+public class EFFRunnerExitIFNFTest {
 	// test for checking exit
 	// to my knowledge tgese test must be separated from ordinary test
 	
@@ -45,57 +45,20 @@ public class EFFRunnerExitTest {
 		System.setOut(null);
 	}
 
-	@Test
-	public void NoArgs() {
-		// run without args
-		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {});
-		fail("The test should have stopped.");
-		
-	} // end NoArgs()
-	
-	@Test
-	public void NotEnoughArgs() {
-		// run with 1 args. 2 are required.
-		
-		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {"inputfile"});
-		fail("The test should have stopped.");
-		
-	} // end NotEnoughArgs()
 	
 	@Test
 	public void InputFileNotFound() {
 		// run with an input file that does not exists
 		String InputFile = DataFolder  + "/filedonotexist.txt";
-		String OutputFile = DataFolder  + "OutputFiles/filemustnotexist.txt";
-		
 		File myInputfile = new File(InputFile );
 		assertFalse("The input file should not be there " + InputFile   , myInputfile.exists());
-		
+		fail("err");
 		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {InputFile, OutputFile });
+		EFFRunner.main(new String[] {InputFile });
 		fail("The test should have stopped.");
 		
 	} // end InputFileNotFound()
 	
-	@Test
-	public void AllWorks() {
-		// run with data to process
-		String InputFileName = DataFolder  + "/filedonotexist.txt";
-		String OutputFileName = DataFolder  + "/filedonotexist.txt";
-		String SavedFileName = DataFolder  + "/filedonotexist.txt";
-		
-		
-		File myInputfile = new File(InputFileName );
-		assertFalse("The input file should  be there " + InputFileName   , myInputfile.exists());
-		
-		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {InputFileName });
-		
-		assertTrue("The console should display Usage: EFFRunner inputfile outputfile. ùActuel result is :  " + outContent.toString(), outContent.toString().contains("Usage: EFFRunner inputfile outputfile"));
-		fail("Not yet implemented");
-	} // end AllWorks()
 	
 	
 
