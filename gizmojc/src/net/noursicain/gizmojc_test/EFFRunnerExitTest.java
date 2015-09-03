@@ -79,23 +79,6 @@ public class EFFRunnerExitTest {
 		
 	} // end InputFileNotFound()
 	
-	@Test
-	public void AllWorks() {
-		// run with data to process
-		String InputFileName = DataFolder  + "/filedonotexist.txt";
-		String OutputFileName = DataFolder  + "/filedonotexist.txt";
-		String SavedFileName = DataFolder  + "/filedonotexist.txt";
-		
-		
-		File myInputfile = new File(InputFileName );
-		assertFalse("The input file should  be there " + InputFileName   , myInputfile.exists());
-		
-		exit.expectSystemExitWithStatus(99);
-		EFFRunner.main(new String[] {InputFileName });
-		
-		assertTrue("The console should display Usage: EFFRunner inputfile outputfile. ùActuel result is :  " + outContent.toString(), outContent.toString().contains("Usage: EFFRunner inputfile outputfile"));
-		fail("Not yet implemented");
-	} // end AllWorks()
 	
 	
 
