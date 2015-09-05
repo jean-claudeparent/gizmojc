@@ -73,6 +73,34 @@ public class EFFRunnerTest {
 		
 	} // end AllWorks()
 	
+	@Test
+	public void AllWorksIFTTTFile()  throws Exception  {
+		// run with data toprocess . The file was create with IFTTT and faiils acceptance test
+		String InputFileName = DataFolder  + "InputFiles/EFFRunnerTest.AllWorksIFTTTFile_Input.txt";
+		String OutputFileName = DataFolder  + "OutputFiles/EFFRunnerTest.AllWorksIFTTTFile_Output.txt";
+		String SavedFileName = DataFolder  + "SavedFiles/EFFRunnerTest.AllWorksIFTTTFile_Saved.txt";
+		
+		// Check if the test is setup
+		
+		
+		File myInputfile = new File(InputFileName );
+		assertTrue("The input file should  be there " + InputFileName   , myInputfile.exists());
+		File myOutputfile = new File(OutputFileName );
+		if (myOutputfile.exists()) myOutputfile.delete();
+		assertFalse("The output file should not  be there " + OutputFileName   , myOutputfile.exists());
+		File mySavedfile = new File(SavedFileName );
+		assertTrue("The result saved file should  be there " + SavedFileName   , mySavedfile.exists());
+		
+		
+		// Call method to test
+		EFFRunner.main(new String[] {InputFileName, OutputFileName });
+		
+		// Check result
+		assertTrue("The output file should  be there " + OutputFileName   , myOutputfile.exists());
+		assertTrue("The new result file is not the same as the saved result file. ",FileUtils.contentEquals(myOutputfile,mySavedfile ));
+		
+				
+	} // end AllWorksIFTTTFile()
 	
 
 }
