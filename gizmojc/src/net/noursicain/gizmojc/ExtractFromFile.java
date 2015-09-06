@@ -50,7 +50,7 @@ public class ExtractFromFile {
 		
 		
 		
-		while ((InputLine = br.readLine()) != null && InputLine.length() != 0)
+		while ((InputLine = br.readLine()) != null )
 		{
 			eU.TextToParse = InputLine;
 			LinesReaded = LinesReaded + 1;

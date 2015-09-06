@@ -97,7 +97,7 @@ public class EFFRunnerTest {
 		File mySavedfile = new File(SavedFileName );
 		assertTrue("The result saved file should  be there " + SavedFileName   , mySavedfile.exists());
 		
-		
+	
 		// Call method to test
 		EFFRunner.main(new String[] {InputFileName, OutputFileName });
 		
