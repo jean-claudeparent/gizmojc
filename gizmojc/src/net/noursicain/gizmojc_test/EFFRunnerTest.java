@@ -32,14 +32,14 @@ public class EFFRunnerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		System.setOut(new PrintStream(outContent));
+		
 		TestTools myTT = new TestTools();
 		DataFolder = myTT.Folder(ExtractFromFileTest.class.getResource("Ressources/Ressources.txt").toString());
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.setOut(null);
+		
 	}
 
 	
@@ -63,7 +63,12 @@ public class EFFRunnerTest {
 		assertTrue("The result saved file should  be there " + SavedFileName   , mySavedfile.exists());
 		
 		// Call method to test
+		System.setOut(new PrintStream(outContent));
+		
 		EFFRunner.main(new String[] {InputFileName, OutputFileName });
+		System.setOut(null);
+		
+		assertTrue("The standard output should contain some urls",outContent.toString().contains("http://"));
 		
 		// Check result
 		assertTrue("The output file should  be there " + OutputFileName   , myOutputfile.exists());
@@ -76,6 +81,7 @@ public class EFFRunnerTest {
 	@Test
 	public void AllWorksIFTTTFile()  throws Exception  {
 		// run with data toprocess . The file was create with IFTTT and faiils acceptance test
+		
 		String InputFileName = DataFolder  + "InputFiles/EFFRunnerTest.AllWorksIFTTTFile_Input.txt";
 		String OutputFileName = DataFolder  + "OutputFiles/EFFRunnerTest.AllWorksIFTTTFile_Output.txt";
 		String SavedFileName = DataFolder  + "SavedFiles/EFFRunnerTest.AllWorksIFTTTFile_Saved.txt";
