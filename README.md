@@ -12,3 +12,23 @@ Some of the code was created infrench so somme comment and variable names are in
 
 The project is intended to run on Mac OS/X and linux.
 Some comment may seems to have no use but are intendedn to allow visually impaired  people to understand the code.
+
+===============
+version 1.0
+
+Method: WFFRunner
+
+A command line method that read a texte file containing urls, and write a file containing only the urls, one by line. 
+
+Usage in a unix script:
+============
+
+java -cp /GizmoJC/PROD/bin/java/ net.noursicain.gizmojc/EFFRunner /GizmoJC/PROD/WORK/xpert1/URLExtract_in.txt /GizmoJC/PROD/WORK/xpert1/URLExtract_out.txt  >> /GizmoJC/PROD/journal/run_XPrt1_01_chaineLoadSQL.txt
+if [ "$?" = "0" ]; then
+#do something with the file
+else
+echo error message
+exit 99
+fi
+====================
+This script must be changed to match your file system. (where are the class and the files to process)
